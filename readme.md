@@ -1,0 +1,1 @@
+training/refresher for python and django
