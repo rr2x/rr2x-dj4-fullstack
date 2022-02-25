@@ -1,0 +1,12 @@
+.btn-danger {
+  background-color: rgb(158, 42, 42);
+}
+
+.btn-danger:hover {
+  background-color: blue;
+  color: red;
+}
+
+.btn-primary {
+  background-color: rgb(37, 37, 189);
+}

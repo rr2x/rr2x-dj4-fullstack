@@ -1,0 +1,58 @@
+#up {
+  text-align: center;
+  border: 10px solid blue;
+  margin-bottom: 100px;
+  margin-left: 100px;
+}
+
+#down {
+  text-align: center;
+  border: 10px solid red;
+  padding-top: 20px;
+}
+
+/* body {
+  font-family: 'Moo Lah Lah', Tahoma;
+}*/
+
+/* 1em = current font size, 16px commonly... 1em=pixels/16 */
+
+/*
+p {
+  font-size: 3em;
+  font-size: 100%;
+} */
+
+/* .myClass {
+  color: red;
+}
+
+#one {
+  color: blue;
+}
+
+#two {
+  color: green;
+} */
+
+/* body {
+  background-color: cornflowerblue;
+}
+
+div {
+  background-color: chartreuse;
+  border: 1px dotted #111;
+}
+
+span {
+  background: chocolate;
+}
+
+h1 {
+  color: blue;
+}
+
+h2 {
+  color: #333;
+  background-color: #666;
+} */
