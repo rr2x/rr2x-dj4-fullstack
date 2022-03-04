@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>VARIABLE.HTML</h1>
+
+
+
+
+    <ul>
+      {% for i in some_list %}
+        <li>{{i}}</li>
+      {% endfor %}
+    </ul>
+
+    <ol>
+      {% for k,v in some_dictionary.items %}
+        <li>{{k}} {{v}}</li>
+      {% endfor %}
+    </ol>
+
+    {% if user_logged_in %}
+      <span>user logged in.</span>
+    {% endif %}
+
+    <ul>
+      {% if some_list|length > 0 %}
+        number of list items: {{some_list|length}}
+      {% endif %}
+      {% for num in some_list %}
+        {% if num == 2 %}
+          <li>TWO</li>
+        {% else %}
+          <li>{{num}}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <!-- django filters using | sign -->
+    <!-- <h2>First name was: {{first_name|upper}}</h2>
+    <h2>Last name was: {{last_name|lower|capfirst}}</h2>
+    <h3>{{some_list.0}}</h3>
+    <h3>{{some_dictionary.i_k}}</h3>
+    <h4>{# this is a comment #}</h4> -->
+  </body>
+</html>
