@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block block_name1 %}
   <h1>my_app</h1>
   <a href="{% url 'my_app:variable_view' %}">open variable.html</a>
-</body>
-</html>
+  <img src="{% static 'my_app/Django_Unchained.jpg' %}" alt="Django_Unchained image">
+{% endblock %}

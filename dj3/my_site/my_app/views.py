@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 
 def example_view(request):
-    return render(request, 'my_app/example.html')
+    return render(request, "my_app/example.html")
 
 
 # {%%} = django tag, where we place control flow and loops
@@ -19,4 +19,4 @@ def variable_view(request):
         "user_logged_in": True,
     }
 
-    return render(request, 'my_app/variable.html', context=my_var)
+    return render(request, "my_app/variable.html", context=my_var)
