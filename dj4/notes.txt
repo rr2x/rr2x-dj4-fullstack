@@ -9,10 +9,32 @@
 >>> carl.age
     # run insert command
 >>> carl.save()
-    #create and save
+    # create and save
 >>> Patient.objects.create(first_name="CI, last_name="CI", age=11)
-    #bulk create
->>> mylist = [Patient(first_name="AD",last_name="AM",age=5), Patient(first_name="KA",last_name="AM",age=2)]
->>> Patient.objects.bulk_create(mylist)
-    #return queryset
+    # bulk create
+>>> mylist = [Patient(first_name="AD",last_name="smith", age=3), Patient(first_name="KA",last_name="smith", age=4)]
+>>> Patient.objects.bulk_create(mylist) # does not work on many-to-many relationships
+    # return queryset
 >>> Patient.objects.all()
+    # only return one
+>>> Patient.objects.get(pk=1) # pk is always base-1
+    # return more than one
+>>> Patient.objects.filter(last_name="smith", age=3)
+
+# Q object class, to use (OR=| AND=& operations)... for complex lookups
+>>> from django.db.models import Q
+>>> Patient.objects.filter(Q(last_name='smith') | Q(age=4))
+
+# fieldlookups: "fieldname"__"lookupfunction"
+>>> Patient.objects.filter(last_name__startswith="s")
+# get in a list
+>>> Patient.objects.filter(age__in=[3,9,4]).all()
+# greater-than-or-equal-to
+>>> Patient.objects.filter(age__gte=12).all()
+# order by age
+>> Patient.objects.order_by('age').all()
+
+
+# check documentation for fieldlookups to more info
+
+https://docs.djangoproject.com/en/4.0/ref/models/querysets/
