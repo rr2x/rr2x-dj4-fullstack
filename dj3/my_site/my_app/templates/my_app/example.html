@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block block_name1 %}
+  <h1>my_app</h1>
+  <a href="{% url 'my_app:variable_view' %}">open variable.html</a>
+  <img src="{% static 'my_app/Django_Unchained.jpg' %}" alt="Django_Unchained image">
+{% endblock %}

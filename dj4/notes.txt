@@ -1,0 +1,45 @@
+# to see sql equivalent of generated migration file
+>>> python manage.py sqlmigrate "appname" "migration number ####"
+
+#to access shell and run some code
+>>> python manage.py shell
+>>> from office.models import Patient
+>>> carl = Patient(first_name="CA", last_name="RL", age=12)
+    # check python object property or methods
+>>> carl.age
+    # run insert command
+>>> carl.save()
+    # create and save
+>>> Patient.objects.create(first_name="CI, last_name="CI", age=11)
+    # bulk create
+>>> mylist = [Patient(first_name="AD",last_name="smith", age=3), Patient(first_name="KA",last_name="smith", age=4)]
+>>> Patient.objects.bulk_create(mylist) # does not work on many-to-many relationships
+    # return queryset
+>>> Patient.objects.all()
+    # only return one
+>>> Patient.objects.get(pk=1) # pk is always base-1
+    # return more than one
+>>> Patient.objects.filter(last_name="smith", age=3)
+
+# Q object class, to use (OR=| AND=& operations)... for complex lookups
+>>> from django.db.models import Q
+>>> Patient.objects.filter(Q(last_name='smith') | Q(age=4))
+
+# fieldlookups: "fieldname"__"lookupfunction"
+>>> Patient.objects.filter(last_name__startswith="s")
+# get in a list
+>>> Patient.objects.filter(age__in=[3,9,4]).all()
+# greater-than-or-equal-to
+>>> Patient.objects.filter(age__gte=12).all()
+# order by age
+>> Patient.objects.order_by('age').all()
+
+>> carl = Patient.objects.get(pk=1)
+>> carl.last_name = "django" # only changed the object
+>> carl.save() # commit changes
+>> data_point = Patient.objects.get(pk=1)
+>> data_point.delete()
+
+# check documentation for fieldlookups to more info
+
+https://docs.djangoproject.com/en/4.0/ref/models/querysets/
