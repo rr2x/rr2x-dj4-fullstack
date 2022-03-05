@@ -34,6 +34,11 @@
 # order by age
 >> Patient.objects.order_by('age').all()
 
+>> carl = Patient.objects.get(pk=1)
+>> carl.last_name = "django" # only changed the object
+>> carl.save() # commit changes
+>> data_point = Patient.objects.get(pk=1)
+>> data_point.delete()
 
 # check documentation for fieldlookups to more info
 
